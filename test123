@@ -1,1 +1,20 @@
-x
+@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/test/resources"},
+				glue = "stepdefinitions",
+				dryRun = false,
+				monochrome = true,
+				//snippets = SnippetType.CAMELCASE,
+				//strict = true
+				plugin = {"json:target/cucumber/cucumber.json",
+						 "html:target/cucumber-default"	,
+						 "pretty"
+				},
+				
+				tags = {	"@summer"	}
+
+		
+		)
+public class TestRunCucumber {
+	
+
+}
