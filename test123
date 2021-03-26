@@ -1,26 +1,6 @@
-@Test
-	public void browserWindowCommands() throws IOException {
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.voltlighting.com/");
-		System.out.println(driver.getCurrentUrl());
-		System.out.println(driver.getTitle());
-		System.out.println(driver.getWindowHandle());
-		driver.navigate().to("https://www.jellybelly.com/");
-		driver.navigate().back();
-		driver.navigate().forward();
-		driver.navigate().refresh();
-		String pSource =driver.getPageSource();
-		Util.writeToFile(pSource);
-		
-		driver.manage().window().maximize();
-		Dimension d = new Dimension(2040, 2000);
-		driver.manage().window().setSize(d);
-		
-		System.out.println(driver.manage().window().getSize());
-		driver.close();
-		driver.quit();
-		
-		
-		
-		
-	}
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+driver.findElement(By.id("forename")).sendKeys("Suresh");
+driver.findElement(By.xpath("xx")).sendKeys("Suresh");
+driver.findElement(By.name("xx")).sendKeys("Suresh");
+driver.findElement(By.className("xx")).sendKeys("Suresh");
