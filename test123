@@ -7,35 +7,38 @@ driver.findElement(By.className("xx")).sendKeys("Suresh");
 
 
 
-Mine:
-HTML source
-<select name="car_make" id="car_make_select">
- <option value="">-- Select --</option>
- <option value="honda">Honda (Japan)</option>
- <option value="volvo">Volvo (Sweden)</option>
- <option value="audi">Audi (Germany)</option>
-</select>
-Select an option by text
-The label of a select list is what we can see in the browser.
-IWebElement elem = driver.FindElement(By.Name("car_make"));
-SelectElement select = new SelectElement(elem);
-select.SelectByText("Volvo (Sweden)");
-The standard Selenium class name for Select Lists is Select (that is how is called
-in Java). As Select is a reserved keyword in C#, the class is named SelectElement for
-Selenium C# binding.
-Chapter 8 ■ Select List
-50
-You may also replace the three preceding test statements with one.
-new SelectElement(driver.FindElement(By.Name("car_make"))).
-SelectByText("Honda (Japan)");
-Select an option by value
-The value of a select list is what is to be passed to the server.
-IWebElement elem = driver.FindElement(By.Id("car_make_select"));
-SelectElement select = new SelectElement(elem);
-select.SelectByValue("audi");
-Select an option by index
-Sometimes, we don't care about an exact option, we just need to select one to pass the
-validation. In that case, then by index is a better way, especially for dynamic options.
-IWebElement elem = driver.FindElement(By.Id("car_make_select"));
-SelectElement select = new SelectElement(elem);
-select.SelectByIndex(1); // 0 based index
+public class MyTest {
+	
+	@Test
+	public void browserWindowCommands() throws IOException {
+		WebDriver driver = new ChromeDriver();
+
+	    
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		driver.get("https://int-quotes3.boigroup.net/quotes/newbusiness/index.htm");
+		driver.findElement(By.name("username")).sendKeys("c113189");
+		driver.findElement(By.name("password")).sendKeys("b6Zm3Xjz");
+		driver.findElement(By.xpath("//input[@value= \"Login\"]")).click();
+		
+		WebElement  element = driver.findElement(By.xpath("//input[@id = \"ext-comp-1055\" and @class = \"x-form-text x-form-field x-form-focus\"]"));
+		Select dropdown = new Select (element);
+		dropdown.selectByValue("0024045A - NIA Broker Standard");
+		
+		//ext-comp-1055
+		//id="ext-comp-1055"
+		//class="x-form-text x-form-field"
+		//input[@id = "ext-comp-1055" and @class = "x-form-text x-form-field x-form-focus"]
+		
+	
+		//driver.findElement(By.id("xx")).sendKeys("xx");
+		//driver.findElement(By.xpath("xx")).sendKeys("xx");
+		//driver.findElement(By.name("xx")).sendKeys("xx");
+		//driver.findElement(By.className("xx")).sendKeys("xx");
+		
+	
+		
+	}
+
+}
