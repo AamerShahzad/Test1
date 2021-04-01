@@ -4,3 +4,38 @@ driver.findElement(By.id("forename")).sendKeys("Suresh");
 driver.findElement(By.xpath("xx")).sendKeys("Suresh");
 driver.findElement(By.name("xx")).sendKeys("Suresh");
 driver.findElement(By.className("xx")).sendKeys("Suresh");
+
+
+
+Mine:
+HTML source
+<select name="car_make" id="car_make_select">
+ <option value="">-- Select --</option>
+ <option value="honda">Honda (Japan)</option>
+ <option value="volvo">Volvo (Sweden)</option>
+ <option value="audi">Audi (Germany)</option>
+</select>
+Select an option by text
+The label of a select list is what we can see in the browser.
+IWebElement elem = driver.FindElement(By.Name("car_make"));
+SelectElement select = new SelectElement(elem);
+select.SelectByText("Volvo (Sweden)");
+The standard Selenium class name for Select Lists is Select (that is how is called
+in Java). As Select is a reserved keyword in C#, the class is named SelectElement for
+Selenium C# binding.
+Chapter 8 ■ Select List
+50
+You may also replace the three preceding test statements with one.
+new SelectElement(driver.FindElement(By.Name("car_make"))).
+SelectByText("Honda (Japan)");
+Select an option by value
+The value of a select list is what is to be passed to the server.
+IWebElement elem = driver.FindElement(By.Id("car_make_select"));
+SelectElement select = new SelectElement(elem);
+select.SelectByValue("audi");
+Select an option by index
+Sometimes, we don't care about an exact option, we just need to select one to pass the
+validation. In that case, then by index is a better way, especially for dynamic options.
+IWebElement elem = driver.FindElement(By.Id("car_make_select"));
+SelectElement select = new SelectElement(elem);
+select.SelectByIndex(1); // 0 based index
