@@ -7,82 +7,77 @@ driver.findElement(By.className("xx")).sendKeys("Suresh");
 
 
 
-<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+package runners;
 
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>1.2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-jvm-deps</artifactId>
-			<version>1.0.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>4.0.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-picocontainer</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>3.1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vimalselvam</groupId>
-			<artifactId>cucumber-extentsreport</artifactId>
-			<version>3.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.23</version>
-		</dependency>
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
-		<!-- <dependency> <groupId>org.apache.pdfbox</groupId> <artifactId>pdfbox</artifactId>
-			<version>2.0.8</version> </dependency> -->
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>1.3.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+public class MyTest {
+	
+	@Test
+	public void browserWindowCommands() throws IOException {
+		//Given NBQ-Home in Chrome on server https://env2-int-isam.boigroup.net:449/quotes/newbusiness 
+		//for Horizon_Calc01 with login stduser2 and password Password1
+		WebDriver driver = new ChromeDriver();
+
+	    
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		driver.get("https://int-quotes3.boigroup.net/quotes/newbusiness/index.htm");
+		driver.findElement(By.name("username")).sendKeys("c113189");
+		driver.findElement(By.name("password")).sendKeys("b6Zm3Xjz");
+		driver.findElement(By.xpath("//input[@value= \"Login\"]")).click();
+		
+
+		//When I select 0024045A - NIA Broker Standard from broker popup and click Ok
+		driver.findElement(By.id("ext-comp-1055")).sendKeys("0024045A - NIA Broker Standard");
+		driver.findElement(By.xpath("//div[@id='ext-gen112']/div[text()='0024045A - NIA Broker Standard']")).click();
+		driver.findElement(By.id("ext-gen79")).click();
+		
+		//When I set forenames to Testy On Life1
+		Actions actions = new Actions(driver);
+		
+		WebElement forenames  = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[3]"));
+		actions.moveToElement(forenames).doubleClick().sendKeys("Testy").build().perform();
+		
+
+		//And I set surname to McTest On Life1
+		WebElement surname  = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[4]"));
+		actions.moveToElement(surname).doubleClick().sendKeys("McTest").build().perform();
+		
+
+		//And I set dob to 01/01/1976 On Life1 (Age below 30)
+		WebElement dob = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[5]"));
+		actions.moveToElement(dob).doubleClick().sendKeys("25").build().perform();
+		
+		//When I enter Female into the Gender field on ClientDetails table for Life 1
+		WebElement gender = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[6]"));
+		actions.moveToElement(gender).doubleClick().sendKeys("Female").build().perform();
+		
+		//When I enter Single into the Marital Status field on ClientDetails table for Life 1
+		WebElement maritalstatus = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[7]"));
+		actions.moveToElement(maritalstatus).doubleClick().sendKeys("Single").build().perform();
+		
+		//When I enter Smoker into the Smoker Status field on ClientDetails table for Life 1
+		WebElement smokerstatus = driver.findElement(By.xpath("//div[contains(@class, 'x-grid3-row-first')]//td[8]"));
+		actions.moveToElement(smokerstatus).doubleClick().sendKeys("Smoker").build().perform();
 
 
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
 
-	</dependencies>
+
+	
+		
+	}
+
+}
+
