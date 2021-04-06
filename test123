@@ -81,3 +81,10 @@ public class MyTest {
 
 }
 
+
+String matching_str = "Text assertion with a (tab before), and \n(new line \
+before)!";
+assert driver.findElement(By.tagName("body")).getText().contains(matching_st\
+r);
+
+
