@@ -88,3 +88,13 @@ assert driver.findElement(By.tagName("body")).getText().contains(matching_st\
 r);
 
 
+SELECT LIST:
+Select select = new Select(driver.findElement(By.name("test_framework")));
+select.selectByVisibleText("Selenium");
+select.selectByValue("rwebspec");
+select.selectByIndex(2);
+assert select.getAllSelectedOptions().size() == 3;
+
+
+
+
