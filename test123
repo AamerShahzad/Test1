@@ -95,6 +95,12 @@ select.selectByValue("rwebspec");
 select.selectByIndex(2);
 assert select.getAllSelectedOptions().size() == 3;
 
+//Clear command
+WebElement elem = driver.findElement(By.id("pass"));
+Actions builder = new Actions(driver);
+builder.doubleClick(elem).perform();
+
+
 
 
 
