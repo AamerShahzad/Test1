@@ -200,3 +200,73 @@ Then the Chromedriver will close
 When I set the following Life1 data
 |fname|sname|dob|gender|Qty|
 |testy|mac| defult|Male|
+
+
+
+
+
+
+
+
+New:
+
+Given NBQ-Home in Chrome on server https://env2-int-isam.boigroup.net:449/quotes/newbusiness for Horizon_UI01 with login stduser2 and password Password1
+
+
+
+When I set following data for Life1
+|forename|surname|dob|Gender|MaritalStatus|SmokerStatus|
+|Testy|McTest|01/01/1976|Female|Co-habiting|Smoker|
+
+
+When I set following data for Life1
+|forename|surname|dob|Gender|MaritalStatus|SmokerStatus|
+|Test|McTesty|28/08/1980|Male|Partner|Non Smoker|
+
+
+When I Select Horizon Term Cover link and confirm label Protection Quotation Type - Horizon Term Cover
+
+When I set Quotation Details following data
+|CoverType|CommencementDate|
+|Dual Life|Today's Date|
+
+When I set Regular Premium Details following data
+|PaymentFrequency|
+|Quarterly|
+
+When I set Benefit Ratings following data
+|Does a rating apply to the Life Cover on the existing policy|Does a rating apply to the rider benefits on the existing policy|
+|Yes|Yes|
+
+
+When I set Benefit >>> Lump Sum /Main Benefits  following data
+|Lump Sum on Death Life1|Lump Sum on Death Life2|Term|Increasing Benefits|
+|150000|3000000|27|Yes|
+
+When I set Benefit >>> Lump Sum /Main Benefits >>> Loadings - Lump Sum On Death following data
+|Loadings-LumpSumOnDeathLife1 extraMortality|Loadings-LumpSumOnDeathLife1 ratePerThousand|Loadings-LumpSumOnDeathLife1 extraMortality|Loadings-LumpSumOnDeathLife1 ratePerThousand|
+|125|3|25|30|
+
+
+
+When I set Benefit >>> Further Optional Benefits following data
+|HospitalisationPaymentLife1|HospitalisationPaymentLife2|AccidentPaymentLife1|AccidentPaymentLife2|BrokenBonesPaymentLife1|BrokenBonesPaymentLife2|
+|150|75|300|207|Yes|Yes|
+
+
+When I set Life1 Benefit >>> Lump Sum /Main Benefits >>> Loadings following data
+|LoadingsHospitalisationPaymentLife1|LoadingsAccidentPaymentLife1|BrokenBonesPaymentLife1|
+|50|15|18|
+
+When I set Life2 Benefit >>> Lump Sum /Main Benefits >>> Loadings following data
+|LoadingsHospitalisationPaymentLife2|LoadingsAccidentPaymentLife2|BrokenBonesPaymentLife2|
+|100|450|1|
+
+
+
+
+When I click on Calculate button and Save button
+Then I get the QuoteID from the results panel 1
+Then the browser will close
+Then the Chromedriver will close
+
