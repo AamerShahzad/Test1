@@ -196,3 +196,7 @@ Then I want to take a Tables screenshot
 Then the browser will close
 Then the Chromedriver will close
 
+
+When I set the following Life1 data
+|fname|sname|dob|gender|Qty|
+|testy|mac| defult|Male|
