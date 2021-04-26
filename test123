@@ -114,3 +114,85 @@ builder.doubleClick(elem).perform();
 http://cucumber.github.io/cucumber-eclipse/update-site/
 
 
+
+
+
+Given NBQ-Home in Chrome on server https://env2-int-isam.boigroup.net:449/quotes/newbusiness for Horizon_UI01 with login stduser2 and password Password1
+When I set forenames to Testy On Life1
+And I set surname to McTest On Life1
+And I set dob to 01/01/1976 On Life1
+When I enter Female into the Gender field on ClientDetails table for Life 1
+When I enter Co-habiting into the Marital Status field on ClientDetails table for Life 1
+When I enter Smoker into the Smoker Status field on ClientDetails table for Life 1
+
+When I set forenames to Test On Life2
+And I set surname to McTesty On Life2
+And I set dob to 28/08/1980 On Life2
+When I enter Male into the Gender field on ClientDetails table for Life 2
+When I enter Partner into the Marital Status field on ClientDetails table for Life 2
+When I enter Non Smoker into the Smoker Status field on ClientDetails table for Life 2
+
+When I click on the Horizon Term Cover link
+Then I should see the warning message This product is only available to existing reviewable protection plan policyholders. The existing policy number will be required to apply for this product.
+When I click the Yes button
+
+Then the label Protection Quotation Type - Horizon Term Cover should be present
+When I chose Dual Life from the drop down Cover Type which has the name quotationDetails_coverType
+When I enter Today's date into the field with the name quotationDetails_commencementDate
+And the drop down current value for Payment Frequency with the name regularPremiumDetails_paymentFrequency is Quarterly
+
+When I chose Yes from the drop down Does a rating apply to the Life Cover on the existing policy: which has the name benefits_lcExistingRatings
+I chose Yes from the drop down Does a rating apply to the rider benefits on the existing policy: which has the name benefits_riderExtRatings
+
+When I enter 150000 into the field with the name benefits_lumpSumOnDeathLife1
+When I enter 3000000 into the field with the name benefits_lumpSumOnDeathLife2
+When I enter 27 into the field with the name benefits_term
+When I chose Yes from the drop down Increasing Benefits: which has the name benefits_increasingBenefits
+
+And I click the loadings button On LumpSumonDeathLife1
+And I enter extraMortality of 125
+And I enter ratePerThousand of 3
+And I click the Apply button
+And I click the loadings button On LumpSumonDeathLife2
+And I enter extraMortality of 25
+And I enter ratePerThousand of 30
+And I click the Apply button
+
+When I enter 150 into the field with the name benefits_hospitalisationPaymentLife2
+When I enter 75 into the field with the name benefits_hospitalisationPaymentLife1
+When I enter 300 into the field with the name benefits_accidentPaymentLife1
+When I enter 207 into the field with the name benefits_accidentPaymentLife2
+When I chose Yes from the drop down Broken Bones Payment which has the name benefits_brokenBonesPaymentLife1
+When I chose Yes from the drop down Broken Bones Payment which has the name benefits_brokenBonesPaymentLife2
+
+And I click the loadings button On HospitalisationPaymentLife1
+And I enter extraMortality of 50
+And I click the Apply button
+And I click the loadings button On HospitalisationPaymentLife2
+And I enter extraMortality of 100
+And I click the Apply button
+
+And I click the loadings button On AccidentPaymentLife2
+And I enter extraMortality of 15
+And I click the Apply button
+And I click the loadings button On AccidentPaymentLife1
+And I enter extraMortality of 450
+And I click the Apply button
+
+And I click the loadings button On BrokenBonesPaymentLife1
+And I enter extraMortality of 18
+And I click the Apply button
+And I click the loadings button On BrokenBonesPaymentLife2
+And I enter extraMortality of 1
+And I click the Apply button
+
+When I click on Calculate button
+When I click the Save button
+Then I get the QuoteID from the results panel 1
+Then I want to take a Results screenshot
+When I click the Illustration table Illustration
+When I click the Illustration table Illustration2
+Then I want to take a Tables screenshot
+Then the browser will close
+Then the Chromedriver will close
+
