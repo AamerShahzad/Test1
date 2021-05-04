@@ -17,3 +17,26 @@ public boolean waitAndClick(WebElement we) throws InterruptedException {
 	    }
 	    return result;
 	}
+	
+	
+	
+	
+	
+	
+	*************************
+		public static Properties loadProperties(String filePath) {
+		Properties prop = null;
+		try (InputStream input = new FileInputStream(filePath)) {
+
+			prop = new Properties();
+			prop.load(input);
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("loaded properties ..."+filePath);
+		return prop;
+
+	}
+	
+	
