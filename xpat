@@ -39,4 +39,73 @@ public boolean waitAndClick(WebElement we) throws InterruptedException {
 
 	}
 	
+	*********************************
+	
+		public static Properties envProp;
+	public static Properties newUser;
+	private SharedStateObjects sso;
+
+	public Hooks(SharedStateObjects sso) {
+		this.sso = sso;
+	}
+
+	@Before(order = 100)
+	public void setUp() {
+		// mvn clean verify -DdesiredBrowser="firefox" -DrunOnGrid="true"
+		String bname = System.getProperty("desiredBrowser", "chrome");
+		String runOnGrid = System.getProperty("runOnGrid", "false");
+
+		if (runOnGrid.equalsIgnoreCase("false")) {
+			sso.driver = Utils.selectBrowserDriver(bname);
+		} else {
+			sso.driver = Utils.selectGridBrowserDriver(bname);
+		}
+		sso.driver.manage().timeouts().implicitlyWait(Integer.valueOf(envProp.getProperty("implicit.timeout")), TimeUnit.SECONDS);
+		sso.driver.manage().window().maximize();
+		sso.driver.get(envProp.getProperty("app.baseurl"));
+
+	}
+
+	@Before(order = 10)
+	public void loadEnvProperties() {
+
+		String envname = System.getProperty("desiredEnv", "staging");
+		if (envname == "staging") {
+			envProp = Utils.loadProperties("./src/test/resources/environments/staging.properties");
+		} else {
+			envProp = Utils.loadProperties("./src/test/resources/environments/uat.properties");
+		}
+		
+		
+	}
+	
+	@Before(value = "@newuser", order = 20)
+	public void loadNewUserProperties() {
+		newUser = Utils.loadProperties("./src/test/resources/persona/newuser.properties");
+	}
+	
+	@After(order = 0)
+	public void tearDown() {
+		sso.driver.close();
+	}
+
+	@After(order = 100)
+	public void embedScreenshot(Scenario scenario) {
+		final byte[] screenshot = ((TakesScreenshot) sso.driver).getScreenshotAs(OutputType.BYTES);
+		scenario.embed(screenshot, "image/png", scenario.getName());
+
+		// in case if you need screenshot only for failed scenarios
+		if (scenario.isFailed()) {
+			// then take screen shot the above 2 lines of code cut paste here
+		}
+	}
+
+	// In case if you need to get screenshot for every step.
+//	@AfterStep(order = 100)
+//	public void embedScreenshotAstep(Scenario scenario) {
+//		final byte[] screenshot = ((TakesScreenshot) sso.driver).getScreenshotAs(OutputType.BYTES);	
+//		scenario.embed(screenshot, "image/png", scenario.getName());
+//		
+//	}
+	
 	
