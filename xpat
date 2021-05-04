@@ -1,1 +1,19 @@
 //span[text()='Illustration Table 2']/../..//table//tr[1]/td/div/div[text()='2']/../../following-sibling::td[2]
+
+
+
+public boolean waitAndClick(WebElement we) throws InterruptedException {
+	    boolean result = false;
+	    int attempts = 0;
+	    while(attempts < 4) {
+	        try {
+	        	we.click();
+	            result = true;
+	            break;
+	        } catch(StaleElementReferenceException e) {
+	        	Thread.sleep(500);
+	        }
+	        attempts++;
+	    }
+	    return result;
+	}
