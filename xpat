@@ -108,4 +108,599 @@ public boolean waitAndClick(WebElement we) throws InterruptedException {
 //		
 //	}
 	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	HomePage split in 2:
+	
+	package pages;
+
+import org.openqa.selenium.By;
+
+import global.SharedStateObjects;
+
+public class HomePageProducs {
+
+	// Product links
+	// Protection
+	By protectionHorizonTermCoverLink = By.linkText("Horizon Term Cover");
+	By protectionHorizonTerm75PLusCoverLink = By.linkText("Horizon Term Cover 75 Plus");
+	By protectionIncomeProtectionLink = By.linkText("Income Protection");
+	By protectionLifechoiceLink = By.linkText("Lifechoice");
+	By protectionPensionTermAssuranceLink = By.linkText("Pension Term Assurance");
+
+	// Pensions
+	By pensionsAVCPRSALink = By.linkText("AVC PRSA");
+	By pensionsExecutiveLink = By.linkText("Executive");
+	By pensionsPRSALink = By.linkText("PRSA");
+	By pensionsPersonalLink = By.linkText("Personal");
+	By pensionsRetirementBondLink = By.linkText("Retirement Bond");
+
+	// Savings and investments
+	By savingandinvestmentFutureSaveLink = By.linkText("FutureSave");
+	By savingandinvestmentSmartFundsLink = By.linkText("Smart Funds");
+
+	// Retirement Funds
+	By retirementFundsAMRFLink = By.linkText("AMRF");
+	By retirementFundsARFLink = By.linkText("ARF");
+	
+	//Common Yes button
+	By buttonYes= By.xpath("//button[text()='Yes']");
+
+	
+	
+	
+	private SharedStateObjects sso;
+
+	public HomePageProducs(SharedStateObjects sso) {
+		this.sso = sso;
+	}
+
+	
+	
+	//Protection products
+	public void selectHorizonTermCoverProtectionLink() {
+
+		sso.driver.findElement(protectionHorizonTermCoverLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	public void selectHorizonTerm75PLusCoverProtectionLink() {
+
+		sso.driver.findElement(protectionHorizonTerm75PLusCoverLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectIncomeProtectionProtectionLink() {
+
+		sso.driver.findElement(protectionIncomeProtectionLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectLifechoiceProtectionLink() {
+
+		sso.driver.findElement(protectionLifechoiceLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectPensionTermAssuranceProtectionLink() {
+
+		sso.driver.findElement(protectionPensionTermAssuranceLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	//Pensions products
+	public void selectAVCPRSAPensionsLink() {
+
+		sso.driver.findElement(pensionsAVCPRSALink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectExecutivePensionsLink() {
+
+		sso.driver.findElement(pensionsExecutiveLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectPRSAPensionsLink() {
+
+		sso.driver.findElement(pensionsPRSALink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	public void selectPersonalPensionsLink() {
+
+		sso.driver.findElement(pensionsPersonalLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	public void selectRetirementBondPensionsLink() {
+
+		sso.driver.findElement(pensionsRetirementBondLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	//Savings and investments products
+	public void selectFutureSaveSavingandinvestmentLink() {
+
+		sso.driver.findElement(savingandinvestmentFutureSaveLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	public void selectSmartFundsSavingandinvestmentLink() {
+
+		sso.driver.findElement(savingandinvestmentSmartFundsLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	
+	
+	
+	//Savings and investments products
+	public void selectcAMRFRetirementFundsLink() {
+
+		sso.driver.findElement(retirementFundsAMRFLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+	public void selectcARFRetirementFundsLink() {
+
+		sso.driver.findElement(retirementFundsARFLink).click();
+		sso.driver.findElement(buttonYes).click();
+
+	}
+
+}
+
+
+
+
+
+
+
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import global.SharedStateObjects;
+
+public class HomePageLifeDetails {
+	
+	//Life1 details
+	By titleDropdownLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[1]/div");
+	By titleFieldLife1 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	By forenameFieldtoClickLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[2]/div");
+	By forenameFieldLife1 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+
+	
+	By surnameFieldtoClickLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[3]/div");
+	By surnameFieldLife1 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	
+	By dobFieldtoClickLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[4]/div");
+	By dobFieldLife1 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	
+	By genderFieldLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[5]/div");
+	By genderDropdownClickLife1 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By genderSelectOptionLife1 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Female']");
+	
+	
+	By maritalStatusFieldLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[6]/div");
+	By maritalStatusDropdownClickLife1 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By maritalStatusSelectOptionLife1 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Co-habiting']");
+	
+	
+	By smokerStatusFieldLife1 = By.xpath("//div[text()='Life 1']/../following-sibling::td[7]/div");
+	By smokerStatusDropdownClickLife1 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By smokerStatusSelectOptionLife1 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Smoker']");
+	
+
+	
+	
+	
+	//Life2 details
+	By titleDropdownLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[1]/div");
+	By titleFieldLife2 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	By forenameFieldtoClickLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[2]/div");
+	By forenameFieldLife2 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+
+	
+	By surnameFieldtoClickLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[3]/div");
+	By surnameFieldLife2 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	
+	By dobFieldtoClickLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[4]/div");
+	By dobFieldLife2 = By.cssSelector("input.x-form-text.x-form-field.x-form-focus");
+	
+	
+	By genderFieldLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[5]/div");
+	By genderDropdownClickLife2 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By genderSelectOptionLife2 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Female']");
+	
+	
+	By maritalStatusFieldLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[6]/div");
+	By maritalStatusDropdownClickLife2 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By maritalStatusSelectOptionLife2 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Co-habiting']");
+	
+	
+	By smokerStatusFieldLife2 = By.xpath("//div[text()='Life 2']/../following-sibling::td[7]/div");
+	By smokerStatusDropdownClickLife2 = By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img");
+	By smokerStatusSelectOptionLife2 = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Smoker']");
+	
+
+	
+	
+	
+	
+	
+	
+	
+	private SharedStateObjects sso;
+	public HomePageLifeDetails(SharedStateObjects sso) {
+		this.sso = sso;
+	}
+	
+	
+	
+	
+	//Actions Life1
+	public void insertTitleLife1(String title)
+	{
+	    sso.driver.findElement(titleDropdownLife1).click();		
+		sso.driver.findElement(titleFieldLife1).sendKeys(title);
+	}
+	
+	public void insertForenameLife1(String forename)
+	{
+		sso.driver.findElement(forenameFieldtoClickLife1).click();		
+		sso.driver.findElement(forenameFieldLife1).sendKeys(forename);
+	}
+	
+	public void insertSurenameLife1(String surename)
+	{
+		sso.driver.findElement(surnameFieldtoClickLife1).click();		
+		sso.driver.findElement(surnameFieldLife1).sendKeys(surename);
+		
+	}
+	
+	public void insertDOBLife1(String dob)
+	{
+		WebElement eleml1 = sso.driver.findElement(dobFieldtoClickLife1);
+		Actions builderl1 = new Actions(sso.driver);
+		builderl1.doubleClick(eleml1).perform();
+		sso.driver.findElement(dobFieldLife1).sendKeys(dob);
+		
+	}
+	
+	//*********************what about gender, maritalstatus, smokerstatus  string????????????????????
+	public void insertGenderLife1(String gender)
+	{
+		sso.driver.findElement(genderFieldLife1).click();		
+		sso.driver.findElement(genderDropdownClickLife1).click();
+		sso.driver.findElement(genderSelectOptionLife1).click();		
+	}
+	
+	public void insertMaritalStatusLife1(String maritalstatus)
+	{
+		sso.driver.findElement(maritalStatusFieldLife1).click();		
+		sso.driver.findElement(maritalStatusDropdownClickLife1).click();
+		sso.driver.findElement(maritalStatusSelectOptionLife1).click();
+	}
+	
+	public void insertSmokerStatusLife1(String smokerstatus)
+	{
+		sso.driver.findElement(smokerStatusFieldLife1).click();		
+		sso.driver.findElement(smokerStatusDropdownClickLife1).click();
+		sso.driver.findElement(smokerStatusSelectOptionLife1).click();
+	}
+	
+	
+	
+	
+	
+	//Actions Life2
+		public void insertTitleLife2(String title)
+		{
+		    sso.driver.findElement(titleDropdownLife2).click();		
+			sso.driver.findElement(titleFieldLife2).sendKeys(title);
+		}
+		
+		public void insertForenameLife2(String forename)
+		{
+			sso.driver.findElement(forenameFieldtoClickLife2).click();		
+			sso.driver.findElement(forenameFieldLife2).sendKeys(forename);
+		}
+		
+		public void insertSurenameLife2(String surename)
+		{
+			sso.driver.findElement(surnameFieldtoClickLife2).click();		
+			sso.driver.findElement(surnameFieldLife2).sendKeys(surename);
+			
+		}
+		
+		public void insertDOBLife2(String dob)
+		{
+			WebElement eleml1 = sso.driver.findElement(dobFieldtoClickLife2);
+			Actions builderl1 = new Actions(sso.driver);
+			builderl1.doubleClick(eleml1).perform();
+			sso.driver.findElement(dobFieldLife2).sendKeys(dob);
+			
+		}
+		
+		//*********************what about gender, maritalstatus, smokerstatus  string????????????????????
+		public void insertGenderLife2(String gender)
+		{
+			sso.driver.findElement(genderFieldLife2).click();		
+			sso.driver.findElement(genderDropdownClickLife2).click();
+			sso.driver.findElement(genderSelectOptionLife2).click();		
+		}
+		
+		public void insertMaritalStatusLife2(String maritalstatus)
+		{
+			sso.driver.findElement(maritalStatusFieldLife2).click();		
+			sso.driver.findElement(maritalStatusDropdownClickLife2).click();
+			sso.driver.findElement(maritalStatusSelectOptionLife2).click();
+		}
+		
+		public void insertSmokerStatusLife2(String smokerstatus)
+		{
+			sso.driver.findElement(smokerStatusFieldLife2).click();		
+			sso.driver.findElement(smokerStatusDropdownClickLife2).click();
+			sso.driver.findElement(smokerStatusSelectOptionLife2).click();
+		}
+		
+	
+	
+	
+	
+	
+
+}
+
+
+
+
+
+CommonPage:
+
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import global.SharedStateObjects;
+
+public class ProtectionCommon {
+	
+	
+	//Elements from HTC/HTC75Plus only
+	By commonCommencementDateCalImg = By.cssSelector("img.x-form-trigger.x-form-date-trigger");
+	By commonCommencementDateCalImgToday = By.xpath("//button[text()='Today']");
+	
+	By commonCoverTypeDropdown = By.xpath("//input[@id='CoverType']/following-sibling::img");
+	By commonCoverTypeList = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Dual Life']");
+	
+	By commonPaymentFrequencyDropdown = By.xpath("//input[@id='PaymentFrequency']/following-sibling::img");
+	By commonPaymentFrequencyList = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Yearly']");
+	
+	By commonLifeCoverRatingDropdown = By.xpath("//input[@id='lcExistingRatings']/following-sibling::img");
+	By commonLifeCoverRatinList = By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Yes']");
+	
+	By commonLumpSumonDeathLife1Field = By.id("LumpSumonDeathLife1");
+	By commonLumpSumonDeathLife2Field = By.id("LumpSumonDeathLife2");
+	By commonTerm = By.id("BenefitsTerm");
+	
+	By commonIncreasingBenefitsDropdown = By.xpath("//input[@id='IncreasingBenefits']/following-sibling::img");
+	By commonIncreasingBenefitsList = By
+			.xpath("//div[contains(@style,'visibility: visible;') and @class = 'x-layer x-combo-list ']//div[contains(@class,'x-combo-list-item') and text()='Yes']");
+	
+	
+	//Elements from Income Protection only
+	By commonSalaryField = By.xpath("//input[@id='Salary']");
+	
+	By commonIncomeProtectionCover = By.xpath("//input[@id='IncomeProtectionCover']");
+	
+	By commonIndexationDropdow = By.xpath("//input[@id='Escalation']/following-sibling::img");
+	By commonIndexationList = By
+			.xpath("//div[contains(@style,'visibility: visible;') and @class = 'x-layer x-combo-list ']//div[contains(@class,'x-combo-list-item') and text()='No']");
+	
+	By commonExpiryAgeField = By.xpath("//input[@id='ExpiryAge']");
+	
+	
+	By commonDeferredPeriodDropdown = By.xpath("//input[@name='benefits_deferredPeriod']/following-sibling::img");
+	By commonDeferredPeriodList = By
+			.xpath("//div[contains(@style,'visibility: visible;') and @class = 'x-layer x-combo-list ']//div[contains(@class,'x-combo-list-item') and text()='8']");
+	
+	By commonOccupationClassDropdown = By.xpath("//input[@id='OccupationClass']/following-sibling::img");
+	By commonOccupationClassList = By
+			.xpath("//div[contains(@style,'visibility: visible;') and @class = 'x-layer x-combo-list ']//div[contains(@class,'x-combo-list-item') and text()='Class 3']");
+	
+	By commonEntitledtoStateBenefitsRadioButton = By.xpath("//input[@id='EntitledtoStateBenefit']");
+	
+	
+	
+	private SharedStateObjects sso;
+	public ProtectionCommon(SharedStateObjects sso) {
+		this.sso = sso;
+	}
+	
+	//Actions for HTC/HTC75Plus only
+	
+	public void setCommomCommencementDate()
+	{
+		sso.driver.findElement(commonCommencementDateCalImg).click();
+		sso.driver.findElement(commonCommencementDateCalImgToday).click();}
+	
+	
+	public void setCommomCoverType()
+	{
+		sso.driver.findElement(commonCoverTypeDropdown).click();
+		sso.driver.findElement(commonCoverTypeList).click();	
+	}
+	
+	public void setCommomPaymentFrequency()
+	{
+		sso.driver.findElement(commonPaymentFrequencyDropdown).click();
+		sso.driver.findElement(commonPaymentFrequencyList).click();
+	}
+	
+	public void setCommomLifeCoverRating()
+	{
+		sso.driver.findElement(commonLifeCoverRatingDropdown).click();
+		sso.driver.findElement(commonLifeCoverRatinList).click();
+	}
+	
+	public void setCommomLumpSumonDeathLife1(String LumpSumonDeathLife1)
+	{
+		sso.driver.findElement(commonLumpSumonDeathLife1Field).sendKeys(LumpSumonDeathLife1);
+	}
+	
+	public void setCommomLumpSumonDeathLife2(String LumpSumonDeathLife2)
+	{
+		sso.driver.findElement(commonLumpSumonDeathLife2Field).sendKeys(LumpSumonDeathLife2);
+	}
+	
+	public void setCommomTerm(String term)
+	{
+		sso.driver.findElement(commonTerm).clear();
+		sso.driver.findElement(commonTerm).sendKeys(term);
+	}
+	
+	public void setCommomIncreasingBenefits()
+	{
+		sso.driver.findElement(commonIncreasingBenefitsDropdown).click();
+		sso.driver.findElement(commonIncreasingBenefitsList).click();
+	}
+	
+	//Actions for Income Protection only
+	
+	public void setCommomSalary(String salary)
+	{
+		WebElement elemIncomPersonalProtSalary = sso.driver.findElement(commonSalaryField);
+		Actions builderIncomPersonalProtSalary = new Actions(sso.driver);
+		builderIncomPersonalProtSalary.doubleClick(elemIncomPersonalProtSalary).perform();
+		sso.driver.findElement(commonSalaryField).sendKeys(salary);
+	}
+	
+	
+	public void setCommomIncomeProtectionCover(String incomeprotectioncover)
+	{	
+	WebElement elemIncomeProtectionCoverPersonal = sso.driver.findElement(commonIncomeProtectionCover);
+	Actions builderIncomeProtectionCoverPersonal = new Actions(sso.driver);
+	builderIncomeProtectionCoverPersonal.doubleClick(elemIncomeProtectionCoverPersonal).perform();
+	sso.driver.findElement(commonIncomeProtectionCover).sendKeys(incomeprotectioncover);
+	}
+	
+	public void setCommomIndexation()
+	{	
+		sso.driver.findElement(commonIndexationDropdow).click();
+		sso.driver.findElement(commonIndexationList)
+				.click();
+	}
+	
+	public void setCommomExpiryAge(String expiryage)
+	{	
+		WebElement elemEpxiryAgePersonal = sso.driver.findElement(commonExpiryAgeField);
+		Actions builderEpxiryAgePersonal = new Actions(sso.driver);
+		builderEpxiryAgePersonal.doubleClick(elemEpxiryAgePersonal).perform();
+		sso.driver.findElement(commonExpiryAgeField).sendKeys(expiryage);
+	}
+	
+	public void setCommomDeferredPeriod()
+	{	
+		sso.driver.findElement(commonDeferredPeriodDropdown).click();
+		sso.driver.findElement(commonDeferredPeriodList).click();
+	}
+	
+	public void setCommomOccupationClass()
+	{	
+		sso.driver.findElement(commonOccupationClassDropdown).click();
+		sso.driver.findElement(commonOccupationClassList).click();
+	}
+
+	public void setCommomEntitledtoStateBenefits()
+	{	
+		sso.driver.findElement(commonEntitledtoStateBenefitsRadioButton).click();
+	}
+
+	
+	public void setCommomLoadingWithAllThreeBothLife1and2() throws InterruptedException
+	{	
+		sso.driver.findElement(By.xpath("//div[@id='x-form-el-LumpSumonDeathJointLife']/table/tbody/tr/td[2]")).click();
+		// LoadingsExtraMortalityJointLifeLife1
+		WebElement elemLoadingLife1JointLifeExtraMort = sso.driver.findElement(By.xpath("//input[@name='extraMortality']"));
+		Actions builderLoadingLife1JointLifeExtraMort = new Actions(sso.driver);
+		builderLoadingLife1JointLifeExtraMort.doubleClick(elemLoadingLife1JointLifeExtraMort).perform();
+		sso.driver.findElement(By.xpath("//input[@name='extraMortality']")).sendKeys("250");
+		// LoadingsRatePerThousandJointLifeLife1
+		WebElement elemLoadingLife1JointLifeRatePerThousand = sso.driver
+				.findElement(By.xpath("//input[@name='ratePerThousand']"));
+		Actions builderLoadingLife1JointLifeRatePerThousand = new Actions(sso.driver);
+		builderLoadingLife1JointLifeRatePerThousand.doubleClick(elemLoadingLife1JointLifeRatePerThousand).perform();
+		sso.driver.findElement(By.xpath("//input[@name='ratePerThousand']")).sendKeys("1");
+		// LoadingsRatePerThousandYearsJointLifeLife1
+		WebElement elemLoadingLife1JointLifeRatePerThousandYears = sso.driver
+				.findElement(By.xpath("//input[@name='ratePerThousandYears']"));
+		Actions builderLoadingLife1JointLifeRatePerThousandYears = new Actions(sso.driver);
+		builderLoadingLife1JointLifeRatePerThousandYears.doubleClick(elemLoadingLife1JointLifeRatePerThousandYears)
+				.perform();
+		sso.driver.findElement(By.xpath("//input[@name='ratePerThousandYears']")).sendKeys("2");
+
+		// Moving to Life 2
+		sso.driver.findElement(By.xpath("//span[text()='Life 2 - Test McTesty']")).click();
+
+		// LoadingsExtraMortalityJointLifeLife2
+		WebElement elemLoadingLife2JointLifeExtraMort = sso.driver
+				.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='extraMortality']"));
+		Actions builderLoadingLife2JointLifeExtraMort = new Actions(sso.driver);
+		builderLoadingLife2JointLifeExtraMort.doubleClick(elemLoadingLife2JointLifeExtraMort).perform();
+		sso.driver.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='extraMortality']")).sendKeys("50");
+		// LoadingsRatePerThousandJointLifeLife2
+		WebElement elemLoadingLife2JointLifeRatePerThousand = sso.driver
+				.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='ratePerThousand']"));
+		Actions builderLoadingLife2JointLifeRatePerThousand = new Actions(sso.driver);
+		builderLoadingLife2JointLifeRatePerThousand.doubleClick(elemLoadingLife2JointLifeRatePerThousand).perform();
+		sso.driver.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='ratePerThousand']")).sendKeys("70");
+		// LoadingsRatePerThousandYearsJointLifeLife2
+		WebElement elemLoadingLife2JointLifeRatePerThousandYears = sso.driver
+				.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='ratePerThousandYears']"));
+		Actions builderLoadingLife2JointLifeRatePerThousandYears = new Actions(sso.driver);
+		builderLoadingLife2JointLifeRatePerThousandYears.doubleClick(elemLoadingLife2JointLifeRatePerThousandYears)
+				.perform();
+		sso.driver.findElement(By.xpath("//div[@id='clientPanel2']//input[@name='ratePerThousandYears']")).sendKeys("3");
+
+
+		Thread.sleep(1200);
+		sso.driver.findElement(By.xpath("//button[text()='Apply']")).click();
+	}
+
+	
+	
+
+	
+}
+
+	
 	
