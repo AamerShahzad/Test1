@@ -1,22 +1,9 @@
-This is where we need to apply waitAndClick
-	public void insertDOB(String life, String dob)
-	{
-		WebElement eleml1 = sso.driver.findElement(By.xpath("//div[text()='"+life+"']/../following-sibling::td[4]/div"));
-		sso.builder.doubleClick(eleml1).build().perform();
-		sso.builder.moveToElement(sso.driver.findElement(focusedField)).sendKeys(dob).sendKeys(Keys.ENTER).build().perform();	
-	}
+		WebElement fundValueTD = driver.findElement(By.xpath("(//div[@id='"+tableName+"']//table)[last()-2]//td[3]"));
+
+
+	//SPFundTable
+	//RPFundTable
 	
-	public void insertGender(String life, String gender){
-		DriverUtils.waitAndClick("//div[text()='"+life+"']/../following-sibling::td[5]/div", sso.driver);
-		sso.driver.findElement(dropdownArrow).click();
-		sso.driver.findElement(By.xpath("//div[contains(@class,'x-combo-list-item') and text()='"+gender+"']")).click();		
-	}
-
-
-and this was the original one public void insertGender
-	driver.findElement(By.xpath("//div[text()='Life 1']/../following-sibling::td[5]/div")).click();
-	driver.findElement(By.cssSelector(".x-form-field-wrap.x-form-field-trigger-wrap.x-trigger-wrap-focus>img")).click();
-	driver.findElement(By.xpath("//div[contains(@class,'x-combo-list-item') and text()='Female']")).click();
 
 
 
