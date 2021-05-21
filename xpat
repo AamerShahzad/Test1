@@ -5,7 +5,13 @@
 	//RPFundTable
 	
 
-
+                WebElement fundValueTD;
+		int noOfTables = driver.findElements(By.xpath("(//div[@id='"+tableName+"']//table)")).size();
+		if(noOfTables == 12) {
+			fundValueTD =driver.findElement(By.xpath("(//div[@id='"+tableName+"']//table)[last()-1]//td[3]"));}
+		else {
+			fundValueTD =driver.findElement(By.xpath("(//div[@id='"+tableName+"']//table)[last()-2]//td[3]"));
+		}
 
 
 
