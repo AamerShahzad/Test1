@@ -1,1 +1,31 @@
-file
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+
+public class Poc2_Dollor {
+
+	@Test
+	public void dollartest() {
+		
+		String payload = "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:web=\"http://www.dataaccess.com/webservicesserver/\">\r\n"
+				+ "   <soap:Header/>\r\n"
+				+ "   <soap:Body>\r\n"
+				+ "      <web:NumberToDollars>\r\n"
+				+ "         <web:dNum>2</web:dNum>\r\n"
+				+ "      </web:NumberToDollars>\r\n"
+				+ "   </soap:Body>\r\n"
+				+ "</soap:Envelope>";
+		
+		given().
+		header("Content-Type", "text/xml").
+		body(payload).
+		log().all().
+		when().
+			post("https://www.dataaccess.com/webservicesserver/numberconversion.wso").
+		then().
+		log().all().
+			assertThat().
+			statusCode(200);
+		
+	}
+	
+}
