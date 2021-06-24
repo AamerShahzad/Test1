@@ -884,3 +884,8 @@ public class RestXmlHttpClient {
 			statusCode(200);
 	}
 	
+	
+	
+	
+	**************************
+	given(). proxy(host("my proxy.domain.com").withPort(8080).withAuth("proxyUser", "proxyPassword"))
