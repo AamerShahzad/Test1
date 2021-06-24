@@ -854,4 +854,33 @@ public class RestXmlHttpClient {
 
 	}
 }
+
+
+********************************
+@Test
+	public void poc2multiply() {
+		
+
+		String payload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
+				+ "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n"
+				+ "  <soap:Body>\r\n"
+				+ "    <Multiply xmlns=\"http://tempuri.org/\">\r\n"
+				+ "      <intA>5</intA>\r\n"
+				+ "      <intB>5</intB>\r\n"
+				+ "    </Multiply>\r\n"
+				+ "  </soap:Body>\r\n"
+				+ "</soap:Envelope>";
+		
+		given().
+		header("Content-Type", "text/xml; charset=utf-8").
+		header("SOAPAction", "http://tempuri.org/Multiply").
+		body(payload).
+		log().all().
+		when().
+			post("http://www.dneonline.com/calculator.asmx").
+		then().
+		log().all().
+			assertThat().
+			statusCode(200);
+	}
 	
