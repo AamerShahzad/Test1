@@ -277,3 +277,50 @@ java.net.UnknownHostException: This is usually a temporary error during hostname
 Default suite
 Total tests run: 1, Failures: 1, Skips: 0
 ===============================================
+
+
+*************************************
+Runner
+************************************
+
+package runners;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+
+//@RunWith(ExtendedCucumber.class)
+//@ExtendedCucumberOptions (
+//		jsonReport = "target/cucumber/cucumber.json",
+//		jsonUsageReport = "target/cucumber/cucumber-usage.json",
+//		usageReport = false,
+//		detailedReport = true,
+//		coverageReport = true,
+//		overviewReport =true,
+//		detailedAggregatedReport = true,
+//		retryCount = 3,
+//		outputFolder = "target/cucumber/cucumberExtended"
+//		)
+
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/test/resources"},
+				glue = "stepdefinitions",
+				dryRun = false,
+				monochrome = true,
+				//snippets = SnippetType.CAMELCASE,
+				//strict = true
+				plugin = {"json:target/cucumber-report.json",
+						 "html:target/cucumber-default"	,
+						 "pretty"
+				},
+				
+				tags = {	"@ProtectionHTC"     }
+		)
+
+//@RepeatedTest 
+public class TestRunCucumber {
+
+}
